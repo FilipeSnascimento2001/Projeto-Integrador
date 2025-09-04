@@ -4,7 +4,16 @@ import java.util.Scanner;//Exemplo base para o quiz
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Digite ´Sim` para começar o teste ou digite ´Não` caso não queira inciar o teste");
+        String inicio;
+        inicio = scanner.nextLine();
 
+        if (inicio.equalsIgnoreCase("Não")) {
+            System.out.println("Encerrando o programa...");
+            System.exit(0); // Encerra o programa imediatamente
+        }
+
+        System.out.println("Você escolheu continuar. Iniciando teste...");
         String[] perguntas = {
                 "Qual é a capital do Brasil?",
                 "Quem escreveu 'Dom Quixote'?",
@@ -23,6 +32,7 @@ public class Main {
 
         int[] respostasCorretas = {2, 3, 1, 1, 3}; // base 1 (1 = primeira opção)
         int pontuacao = 0;
+
 
         for (int i = 0; i < perguntas.length; i++) {
             System.out.println("Pergunta " + (i + 1) + ": " + perguntas[i]);
