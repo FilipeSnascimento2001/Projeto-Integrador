@@ -1,0 +1,47 @@
+import java.util.Scanner;//Exemplo base para o quiz
+
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String[] perguntas = {
+                "Qual é a capital do Brasil?",
+                "Quem escreveu 'Dom Quixote'?",
+                "Qual é o resultado de 9 * 8?",
+                "Qual linguagem é usada para Android nativo?",
+                "Quem pintou a Mona Lisa?"
+        };
+
+        String[][] opcoes = {
+                {"1. São Paulo", "2. Brasília", "3. Rio de Janeiro", "4. Salvador"},
+                {"1. Machado de Assis", "2. William Shakespeare", "3. Miguel de Cervantes", "4. José Saramago"},
+                {"1. 72", "2. 81", "3. 64", "4. 98"},
+                {"1. Kotlin", "2. Python", "3. Swift", "4. C#"},
+                {"1. Van Gogh", "2. Picasso", "3. Da Vinci", "4. Michelangelo"}
+        };
+
+        int[] respostasCorretas = {2, 3, 1, 1, 3}; // base 1 (1 = primeira opção)
+        int pontuacao = 0;
+
+        for (int i = 0; i < perguntas.length; i++) {
+            System.out.println("Pergunta " + (i + 1) + ": " + perguntas[i]);
+            for (String opcao : opcoes[i]) {
+                System.out.println(opcao);
+            }
+
+            System.out.print("Sua resposta (1-4): ");
+            int resposta = scanner.nextInt();
+
+            if (resposta == respostasCorretas[i]) {
+                System.out.println("✅ Correto!\n");
+                pontuacao++;
+            } else {
+                System.out.println("❌ Errado! Resposta correta: " + respostasCorretas[i] + "\n");
+            }
+        }
+
+        System.out.println("Quiz finalizado! Sua pontuação: " + pontuacao + "/" + perguntas.length);
+        scanner.close();
+    }
+}
